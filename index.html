@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Note</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('https://www.transparenttextures.com/patterns/old-moon.png'), linear-gradient(to right, #ff9a9e, #fecfef);
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .flower {
+            color: #ff6f61;
+            font-size: 2em;
+        }
+        h1 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        .button, .file-button, .yes-button, .no-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            color: white;
+        }
+        .button {
+            background: #ff6f61;
+        }
+        .button:hover {
+            background: #ffa07a;
+        }
+        .file-button {
+            background: #6f61ff;
+        }
+        .file-button:hover {
+            background: #7a7aff;
+        }
+        .yes-button {
+            background: #28a745;
+        }
+        .yes-button:hover {
+            background: #218838;
+        }
+        .no-button {
+            background: #dc3545;
+        }
+        .no-button:hover {
+            background: #c82333;
+        }
+        .form-container {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .form-container input, .form-container textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-container button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background: #0056b3;
+        }
+        .terms {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+            max-height: 100px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .terms h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="card">
+        <div class="flower">🌸</div>
+        <h1 id="greeting">Hello Ogone</h1>
+        <p id="message1">I hope you are good 🌸</p>
+        <p id="message2">"I know love is a drug, and I been tryna find my fix." Our favourite artist said that(Rod Wave😹), and you're the fix i want🥺</p>
+        <p id="message3">I'd love to spend some time with you. Maybe a lunch or anything of your choice?</p>
+        <a href="mailto:youremail@example.com" class="button" id="contactButton">Let me know!</a>
+        <p style="margin-top: 20px;" id="specialMessage">I got something for you!</p>
+        <a href="flower.html" target="_blank" class="file-button" id="fileButton">Open it here</a>
+        <p style="margin-top: 20px;" id="girlfriendQuestion">I know i am coming in strong, but will you be my girlfriend?</p>
+        <a href="#" class="yes-button" onclick="showForm()">Yes</a>
+        <a href="#" class="no-button" onclick="showSadFace()">No</a>
+
+        <div class="form-container" id="girlfriendForm">
+            <h2>Girlfriend Form</h2>
+            <form action="https://formspree.io/f/xpzvgprq" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <div class="terms">
+                    <h3>Terms and Conditions</h3>
+                    <p>By agreeing to be my girlfriend, you agree to the following:</p>
+                    <ul>
+                        <li>We will spend quality time together.</li>
+                        <li>We will support each other through good and bad times.</li>
+                        <li>We will communicate openly and honestly.</li>
+                        <li>We will respect each other's boundaries.</li>
+                    </ul>
+                    <h3>Rules and Regulations</h3>
+                    <p>Here are some fun guidelines to keep our relationship happy:</p>
+                    <ul>
+                        <li>Random acts of kindness are always welcome.</li>
+                        <li>Surprise dates are encouraged.</li>
+                        <li>Always remember to smile and laugh together.</li>
+                    </ul>
+                </div>
+                <label>
+                    <input type="radio" id="agree" name="agree" value="agree" required> I agree to the terms and conditions and rules and regulations.
+                </label>
+                <label>
+                    <input type="radio" id="disagree" name="agree" value="disagree" required> I do not agree.
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showForm() {document.getElementById('girlfriendForm').style.display = 'block';
+        }
+
+        function showSadFace() {
+            const card = document.getElementById('card');
+            card.innerHTML = `
+                <div class="flower">😢</div>
+                <h1>Oh no!</h1>
+                <p>I'm really sad to hear that.</p>
+                <p>If you ever change your mind, I'll be here.</p>
+            `;
+        }
+
+        document.getElementById("girlfriendForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const agreeOption = document.querySelector('input[name="agree"]:checked');
+            if (agreeOption && agreeOption.value === 'disagree') {
+                const formData = new FormData(event.target);
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "https://formspree.io/f/xpzvgprq");
+                xhr.setRequestHeader("Accept", "application/json");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Email successfully sent
+                            alert("Email notification sent!");
+                        } else {
+                            // Error sending email
+                            alert("Error sending email notification.");
+                        }
+                    }
+                };
+                xhr.send(formData);
+            }
+        });
+    </script>
+</body>
+</html>
